@@ -8,6 +8,8 @@ import 'package:papapa/three/main_threethree.dart';
 import 'package:papapa/two/lesson_twone.dart';
 import 'package:papapa/two/lesson_twthree.dart';
 import 'package:papapa/two/lesson_twtwo.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainTWOTWO extends StatefulWidget {
   @override
@@ -202,10 +204,11 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
   Widget lesson1OneButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.greenAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.greenAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 1 Python',
-          style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route = MaterialPageRoute(builder: (context) => LessonTWone());
@@ -216,10 +219,11 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
   Widget lesson1TwoButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.greenAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.greenAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 2 HTML',
-          style: TextStyle(color: Colors.black),
+         style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route = MaterialPageRoute(builder: (context) => LessonTWtwo());
@@ -230,10 +234,11 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
   Widget lesson1ThreeButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.greenAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.greenAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 3 วิดีโอเเสดงตัวอย่าง',
-          style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route =
@@ -245,22 +250,23 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
   Widget lesson1FourButton() {
     return OutlineButton(
       borderSide: BorderSide(
-          color: Colors.greenAccent, width: 1.1, style: BorderStyle.solid),
+          color: Colors.greenAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
-        'บทเรียนที่ 4',
-        style: TextStyle(color: Colors.black),
+        'ตัวอย่างของเว็บเพจ',
+      style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
-      onPressed: () {},
+      onPressed: () => launch("http://154.16.11.166:98/"),
     );
   }
 
   Widget lesson1FiveButton() {
     return OutlineButton(
       borderSide: BorderSide(
-          color: Colors.greenAccent, width: 1.1, style: BorderStyle.solid),
+          color: Colors.greenAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
         'บทเรียนที่ 5',
-        style: TextStyle(color: Colors.black),
+      style: TextStyle(fontSize: 15.5,color: Colors.black),
       ),
       onPressed: () {},
     );
@@ -268,13 +274,12 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
 
   Widget lesson1showBotton() {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         lesson1OneButton(),
         SizedBox(height: 50.0),
         lesson1TwoButton(), SizedBox(height: 50.0),
         lesson1ThreeButton(), SizedBox(height: 50.0),
-        //lesson1FourButton(),SizedBox(height: 50.0),
+        lesson1FourButton(), SizedBox(height: 50.0),
         //lesson1FiveButton(),
       ],
     );
@@ -285,25 +290,26 @@ class _MainTWOTWOState extends State<MainTWOTWO> {
     return Scaffold(
         backgroundColor: Colors.greenAccent[700],
         endDrawer: showDrawer(),
-        appBar: AppBar(
-          backgroundColor: Colors.greenAccent,
-          title: Text('บทเรียน'),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30),
-            ),
-          ),
-        ),
+        appBar: GradientAppBar(
+            title: Text('บทเรียน'),
+            gradient: LinearGradient(
+                colors: [Colors.greenAccent, Colors.blue])),
         body: SafeArea(
           child: Container(
             decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.greenAccent], radius: 1.10)),
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.blue, Colors.greenAccent])),
             child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+              child: ListView(
                 children: [
-                  lesson1showBotton(),
+                  SizedBox(
+                    height: 120.0,
+                  ),
+                  lesson1showBotton(),SizedBox(
+                    height: 120.0,
+                  ),
                 ],
               ),
             ),

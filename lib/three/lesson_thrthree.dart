@@ -2,11 +2,16 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter/services.dart';
 
-void main() {
-  runApp(
-    LessonTHRthree(),
-  );
+void main() async {
+  ///
+  /// Force the layout to Portrait mode
+  ///
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
+    runApp(LessonTHRthree());
+  });
 }
 
 class LessonTHRthree extends StatefulWidget {
@@ -18,27 +23,43 @@ class LessonTHRthree extends StatefulWidget {
 
 class _LessonTHRthreeState extends State<LessonTHRthree> {
 
-  Widget showAppName1() {
-    return Text('แสดงตัวอย่างเว็ปเพจพยากรณ์อากาศ',
-        style: TextStyle(
-          fontSize: 20.5,
-          color: Colors.red[600],
-          fontWeight: FontWeight.bold,
-        ),
-        //fontStyle: FontStyle.italic),
-        );      
-  }
-
   Widget showtxt() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        showAppName1(),
-        SizedBox(
-          height: 30.0,
+    return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 20.0,
         ),
-      ],
-    );
+        child: Card(
+      color: Colors.redAccent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'แสดงตัวอย่างเว็ปเพจพยากรณ์อากาศ',
+                  style: TextStyle(
+                    fontSize: 20.5,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  //fontStyle: FontStyle.italic),
+                ),
+                SizedBox(
+                  height: 50.0,
+                )
+                //fontStyle: FontStyle.italic),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 
   VideoPlayerController videoPlayerController;
@@ -70,26 +91,31 @@ class _LessonTHRthreeState extends State<LessonTHRthree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.redAccent,
-          title: Text('วิดีโอเเสดงตัวอย่าง'),
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: Text('วิดีโอเเสดงตัวอย่าง'),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
           ),
         ),
       ),
-        body: Column(
-          children: <Widget>[SizedBox(height: 30.0,),showtxt(),
-            Expanded(
-              child: Center(
-                child: Chewie(
-                  controller: _chewieController,
-                ),
-              ),
-            ),SizedBox(height: 200.0,)
-          ],
-        ),
-      );
+      body: Scrollbar(
+          child: SingleChildScrollView(
+        child: Column(children: <Widget>[
+         
+          showtxt(),
+          SizedBox(
+            height: 20.0,
+          ),
+          Chewie(
+            controller: _chewieController,
+          ),
+          SizedBox(
+            height: 50.0,
+          ),
+        ]),
+      )),
+    );
   }
 }

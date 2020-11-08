@@ -6,27 +6,43 @@ import 'package:photo_view/photo_view.dart';
 class LessonTHRtwo extends StatelessWidget {
 
 
-  Widget showAppName1() {
-    return Text('เว็บเพจพยากรณ์อากาศ:HTML',
+  
+Widget showtxt() {
+    return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 40.0,
+        ),
+        child: Card(
+      color: Colors.redAccent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+        Text('เว็บเพจพยากรณ์อากาศ:HTML',
         style: TextStyle(
           fontSize: 20.5,
-          color: Colors.red[600],
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
-        );
-  }
-
-Widget showtxt() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        showAppName1(),
-        SizedBox(
-          height: 30.0,
         ),
-      ],
-    );
+        SizedBox(
+          height: 50.0,
+        )
+                //fontStyle: FontStyle.italic),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 
   Widget showLogo1() {
@@ -58,18 +74,11 @@ Widget showtxt() {
         width: 200.0,
         height: 200.0,
         child: PhotoView(
-            imageProvider: AssetImage('images/3Weather/HTML/4 HTML.PNG')));
+            imageProvider: AssetImage('images/3Weather/HTML/4.PNG')));
   }
 
-  Widget showLogo5() {
-    return Container(
-        width: 200.0,
-        height: 200.0,
-        child:
-            PhotoView(imageProvider: AssetImage('images/3Weather/HTML/5.PNG')));
-  }
-
-Widget showtxt1() {
+  
+Widget showtxt01() {
     return Container(
         padding: EdgeInsets.all(20),
         child: RichText(
@@ -82,13 +91,13 @@ Widget showtxt1() {
                 ),
                 children: <TextSpan>[
               TextSpan(
-                  text: ' จะกำหนดหน้าเว็บและ fonts ตัวหนังสือของเว็บเพจสภาพอากาศจังหวัดลำพูน',
+                  text: ' ดึงข้อมูล Document ของ dateเพื่อที่จะทำให้เว็บเพจ เริ่มการนับเวลา/วันที่ หรือแสดงเวลา/วันที่แบบ Realtime',
                   style: TextStyle(fontWeight: FontWeight.normal)),
               //fontStyle: FontStyle.italic),
             ]),),);
   }
 
-Widget showtxt2() {
+Widget showtxt1() {
     return Container(
         padding: EdgeInsets.all(20),
         child: RichText(
@@ -101,18 +110,23 @@ Widget showtxt2() {
                 ),
                 children: <TextSpan>[
               TextSpan(
-                  text: ' เราจะออกแบบเว็บเพจค่าฝุ่น PM2.5 ของจังหวัดลำพูนให้มีลักษณะตามที่เราต้องการและตัวหนังสือขนาดที่เหมาะสม',
+                  text: ' จะกำหนดหน้าเว็บและ fonts ตัวหนังสือของ หน้าเว็บเพจ พยากรณ์อากาศจังหวัดลำพูน',
+                  children: <TextSpan>[
+                        TextSpan(text:' เเละในต่อมาเราจะออกแบบ หน้าตาของ เว็บเพจพยากรณ์อากาศของจังหวัดลำพูน ให้มีลักษณะตามที่เราต้องการและตัวหนังสือขนาดที่เหมาะสมกับหน้าเว็บเพจของเรา' )
+                      ],
                   style: TextStyle(fontWeight: FontWeight.normal)),
               //fontStyle: FontStyle.italic),
             ]),),);
   }
+
+
 
 Widget showtxt3() {
     return Container(
         padding: EdgeInsets.all(20),
         child: RichText(
             text: TextSpan(
-                text: '3. ในส่วนที่สาม',
+                text: '3. ในส่วนสุดท้าย',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
@@ -120,26 +134,10 @@ Widget showtxt3() {
                 ),
                 children: <TextSpan>[
               TextSpan(
-                  text: ' เราจะดึงข้อมูล DATA ที่เราสร้างไว้จาก Python มาใช้ในหน้าเว็บเพจเพื่อมาเเสดงผลในหน้าเพจค่าฝุ่น PM2.5 ของจังหวัดลำพูนได้ตามที่เรากำหนด',
-                  style: TextStyle(fontWeight: FontWeight.normal)),
-              //fontStyle: FontStyle.italic),
-            ]),),);
-  }
-
- Widget showtxt4() {
-    return Container(
-        padding: EdgeInsets.all(20),
-        child: RichText(
-            text: TextSpan(
-                text: '4. ในส่วนสุดท้าย',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-                children: <TextSpan>[
-              TextSpan(
-                  text: ' ก็คือการใส่เพิ่มข้อมูล data ในส่วนที่เหลือมาแสดงในหน้าเว็บเพจค่าฝุ่น PM2.5 ของจังหวัดลำพูน เป็นอันเสร็จสิ้น',
+                  text: ' เราจะดึงข้อมูล DATA ที่เราสร้างไว้จาก Python มาใช้ในหน้าเว็บเพจเพื่อมาเเสดงผลใน เว็บเพจพยากรณ์อากาศของจังหวัดลำพูน ได้ตามที่เรากำหนด',
+                  children: <TextSpan>[
+                        TextSpan(text:' ก็คือการเพิ่มข้อมูล data ในส่วนที่เหลือมาแสดงในหน้าเว็บเพจพยากรณ์อากาศของจังหวัดลำพูนนั้น เป็นอันเสร็จสิ้น' )
+                      ],
                   style: TextStyle(fontWeight: FontWeight.normal)),
               //fontStyle: FontStyle.italic),
             ]),),);
@@ -150,7 +148,7 @@ Widget showtxt3() {
         padding: EdgeInsets.all(20),
         child: RichText(
             text: TextSpan(
-                text: '5. หลังจากที่ทำทั้งสองส่วนทั้ง python และ html ',
+                text: '4. หลังจากที่ทำทั้งสองส่วนทั้ง python และ html',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
@@ -178,37 +176,36 @@ Widget showtxt3() {
       ),
       body: ListView(
         children: <Widget>[
-          SizedBox(
-            height: 10.0,
-          ),
+              
           showtxt(),
           SizedBox(
             height: 30.0,
           ),
           showLogo1(),
-          showtxt1(),
+          showtxt01(),
           SizedBox(
             height: 30.0,
           ),
           showLogo2(),
-          showtxt2(),
+          showtxt1(),
+          
           SizedBox(
             height: 30.0,
           ),
           showLogo3(),
           showtxt3(),
+          
           SizedBox(
             height: 30.0,
           ),
+          showtxt5(),
           showLogo4(),
-          showtxt4(),showtxt5(),
           SizedBox(
             height: 30.0,
           ),
-          showLogo5(),
           SizedBox(
             height: 50.0,
-          )
+          ),
         ],
       ),
     );

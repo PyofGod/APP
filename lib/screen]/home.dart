@@ -15,12 +15,11 @@ class _HomeState extends State<Home> {
     return Container(
         width: 200.0, height: 200.0, child: Image.asset('images/python.png'));
   }
-
-  Widget showAppName1() {
+   Widget showAppName1() {
     return Text('การพัฒนาสื่อวีดีทัศน์การเขียนเว็บเพจ',
         style: TextStyle(
-          fontSize: 20,
-          color: Colors.blue[700],
+          fontSize: 20.5,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
@@ -30,25 +29,25 @@ class _HomeState extends State<Home> {
   Widget showAppName2() {
     return Text('โดยใช้ภาษา Python',
         style: TextStyle(
-          fontSize: 20,
-          color: Colors.blue[700],
+          fontSize: 20.5,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
         );
   }
 
+ 
   Widget startBotton() {
     return OutlineButton(
       borderSide:
-          BorderSide(color: Colors.blue, width: 1.1, style: BorderStyle.solid),
+          BorderSide(color: Colors.blue, width: 3.1 , style: BorderStyle.solid),
       child: Text(
         'เริ่มบทเรียน',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 16.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
       onPressed: () {
-        print('Your Start');
-
         MaterialPageRoute materialPageRoute =
             MaterialPageRoute(builder: (BuildContext context) => Menu());
         Navigator.of(context).push(materialPageRoute);
@@ -58,11 +57,12 @@ class _HomeState extends State<Home> {
 
   Widget devBotton() {
     return OutlineButton(
-      borderSide: BorderSide(
-          color: Colors.pink, width: 1.1, style: BorderStyle.solid),
+      borderSide:
+          BorderSide(color: Colors.pink, width: 3.1, style: BorderStyle.solid),
       child: Text(
         'ผู้จัดทำ',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 16.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
       onPressed: () {
         MaterialPageRoute materialPageRoute =
@@ -75,10 +75,11 @@ class _HomeState extends State<Home> {
   Widget exitBotton() {
     return OutlineButton(
       borderSide: BorderSide(
-          color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
+          color: Colors.redAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
         'ออก',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 16.5,color: Colors.black ,
+            fontWeight: FontWeight.bold,),
       ),
       onPressed: () {
         exit(0);
@@ -90,15 +91,26 @@ class _HomeState extends State<Home> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
+        SizedBox(height: 30.0),
+        showAppName1(),
+        showAppName2(),
+        SizedBox(height: 40.0),
+        showLogo(),
+        SizedBox(
+          height: 40.0,
+        ),
         startBotton(),
         SizedBox(
-          height: 50.0,
+          height: 40.0,
         ),
         devBotton(),
         SizedBox(
-          height: 50.0,
+          height: 40.0,
         ),
         exitBotton(),
+        SizedBox(
+          height: 40.0,
+        ),
       ],
     );
   }
@@ -107,26 +119,21 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-          child: Container(
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [Colors.white, Colors.purpleAccent], radius: 1.5)),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  showAppName1(),
-                  showAppName2(),
-                  SizedBox(height: 50.0),
-                  showLogo(),
-                  SizedBox(
-                    height: 50.0,
-                  ),
-                  showBotton(),
-                ],
-              ),
-            ),
+      child: Container(
+       decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Colors.blueAccent,Colors.teal , Colors.yellowAccent])
+  ),
+        child: Center(
+          child: ListView(
+            children: [
+              showBotton(),
+            ],
           ),
-        ));
+        ),
+      ),
+    ));
   }
 }

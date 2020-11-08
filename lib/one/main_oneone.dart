@@ -7,6 +7,7 @@ import 'package:papapa/screen%5D/home.dart';
 import 'package:papapa/screen%5D/menu.dart';
 import 'package:papapa/two/main_twotwo.dart';
 import 'lesson_oone.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainONEONE extends StatefulWidget {
   @override
@@ -14,9 +15,7 @@ class MainONEONE extends StatefulWidget {
 }
 
 class _MainONEONEState extends State<MainONEONE> {
-
-   Widget currentWidget = MainONEONE();
-
+  Widget currentWidget = MainONEONE();
   Widget gOHOME() {
     return ListTile(
       leading: Icon(
@@ -112,6 +111,7 @@ class _MainONEONEState extends State<MainONEONE> {
       },
     );
   }
+
   Widget gOfour() {
     return ListTile(
       leading: Icon(
@@ -144,8 +144,7 @@ class _MainONEONEState extends State<MainONEONE> {
         setState(() {
           currentWidget = Menu();
         });
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Dev()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Dev()));
       },
     );
   }
@@ -169,8 +168,8 @@ class _MainONEONEState extends State<MainONEONE> {
   Widget showHead() {
     return DrawerHeader(
       decoration: BoxDecoration(
-          gradient:
-              LinearGradient(colors: <Color>[Colors.blueAccent, Colors.purple])),
+          gradient: LinearGradient(
+              colors: <Color>[Colors.blueAccent, Colors.purple])),
       child: Column(
         children: <Widget>[
           showpt(),
@@ -193,70 +192,79 @@ class _MainONEONEState extends State<MainONEONE> {
           gOMENU(),
           gOONE(),
           gOTwo(),
-          gOThree(),gOfour(),gOdev()
+          gOThree(),
+          gOfour(),
+          gOdev()
         ],
       ),
     );
   }
-  
+
   Widget lesson1OneButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 1 Python',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {Route route = MaterialPageRoute(builder: (context) => LessonOone());
+        borderSide: BorderSide(
+            color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 1 Python',
+         style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
+        ),
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => LessonOone());
           Navigator.push(context, route);
         });
   }
 
   Widget lesson1TwoButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 2 HTML',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {Route route = MaterialPageRoute(builder: (context) => LessonOtwo());
+        borderSide: BorderSide(
+            color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 2 HTML',
+          style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
+        ),
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => LessonOtwo());
           Navigator.push(context, route);
         });
   }
 
   Widget lesson1ThreeButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 3 เเสดงตัวอย่าง',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: ()  {Route route = MaterialPageRoute(builder: (context) => ChewieDemo());
+        borderSide: BorderSide(
+            color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 3 วิดีโอเเสดงตัวอย่าง',
+        style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
+        ),
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => ChewieDemo());
           Navigator.push(context, route);
         });
   }
 
   Widget lesson1FourButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
+      borderSide: BorderSide(
+          color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
-        'บทเรียนที่ 4',
-        style: TextStyle(color: Colors.black),
+        'ตัวอย่างของเว็บเพจ',
+       style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
-      onPressed: () {},
+      onPressed: () => launch("http://154.16.11.166:2211/"),
     );
   }
 
   Widget lesson1FiveButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
+      borderSide: BorderSide(
+          color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
         'บทเรียนที่ 5',
-        style: TextStyle(color: Colors.black),
+       style: TextStyle(fontSize: 15.5,color: Colors.black),
       ),
       onPressed: () {},
     );
@@ -272,37 +280,49 @@ class _MainONEONEState extends State<MainONEONE> {
         SizedBox(height: 50.0),
         lesson1ThreeButton(),
         SizedBox(height: 50.0),
+        lesson1FourButton()
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( backgroundColor: Colors.blueAccent[700],
-      endDrawer: showDrawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        title: Text('บทเรียน'),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
+    return Scaffold(
+        backgroundColor: Colors.blueAccent[700],
+        endDrawer: showDrawer(),
+        appBar: AppBar(
+          title: Text('บทเรียน'),
+          flexibleSpace: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: <Color>[Colors.purple, Colors.blueAccent[700]],))),shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
           ),
+          
         ),
-      ),
         body: SafeArea(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: RadialGradient(
-                colors: [Colors.white, Colors.blueAccent], radius: 1.10)),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              lesson1showBotton(),
-            ],
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.blueAccent[700], Colors.purple])),
+            child: Center(
+              child: ListView(
+                children: [
+                  SizedBox(
+                    height: 120.0,
+                  ),
+                  lesson1showBotton(),
+                  SizedBox(
+                    height: 120.0,
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }

@@ -7,7 +7,7 @@ class LessonOone extends StatelessWidget {
     return Text('เว็ปเพจจำนวนตัวเลข',
         style: TextStyle(
           fontSize: 20.5,
-          color: Colors.blue[600],
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
@@ -18,7 +18,7 @@ class LessonOone extends StatelessWidget {
     return Text('ของค่าฝุ่น:PYTHON',
         style: TextStyle(
           fontSize: 20.5,
-          color: Colors.blue[600],
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
@@ -26,35 +26,49 @@ class LessonOone extends StatelessWidget {
   }
 
   Widget showtxt() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        showAppName1(),
-        showAppName2(),
-        SizedBox(
-          height: 30.0,
+    return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 80.0,
         ),
-      ],
-    );
+        child: Card(
+          color: Colors.blueAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 70,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[showAppName1(), showAppName2()],
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 
   Widget showtxt1() {
     return Container(
-        padding: EdgeInsets.all(20),
-        child: RichText(
-            text: TextSpan(
-                text: '1. ในส่วนแรก',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-                children: <TextSpan>[
+      padding: EdgeInsets.all(20),
+      child: RichText(
+        text: TextSpan(
+            text: '1. ในส่วนแรก',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+              color: Colors.black,
+            ),
+            children: <TextSpan>[
               TextSpan(
                   text: ' เราจะดึงคลาสข้อมูลก่อนเพื่อให้นำมาใช้งานในโปรแกรม',
                   style: TextStyle(fontWeight: FontWeight.normal)),
               //fontStyle: FontStyle.italic),
-            ]),),);
+            ]),
+      ),
+    );
   }
 
   Widget showtxt2() {
@@ -138,9 +152,7 @@ class LessonOone extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          SizedBox(
-            height: 10.0,
-          ),
+          
           showtxt(),
           SizedBox(
             height: 30.0,

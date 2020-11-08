@@ -8,7 +8,8 @@ import 'package:papapa/screen%5D/home.dart';
 import 'package:papapa/screen%5D/menu.dart';
 import 'package:papapa/three/main_threethree.dart';
 import 'package:papapa/two/main_twotwo.dart';
-
+import 'package:url_launcher/url_launcher.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class MainFOURFOUR extends StatefulWidget {
   @override
@@ -203,10 +204,11 @@ Widget gOdev() {
   Widget lesson1OneButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.purpleAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.purpleAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 1 Python',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route = MaterialPageRoute(builder: (context) => LessonFOone());
@@ -217,10 +219,11 @@ Widget gOdev() {
   Widget lesson1TwoButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.purpleAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.purpleAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 2 HTML',
-          style: TextStyle(color: Colors.black),
+         style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route = MaterialPageRoute(builder: (context) => LessonFOtwo());
@@ -231,10 +234,11 @@ Widget gOdev() {
   Widget lesson1ThreeButton() {
     return OutlineButton(
         borderSide: BorderSide(
-            color: Colors.purpleAccent, width: 1.1, style: BorderStyle.solid),
+            color: Colors.purpleAccent, width: 3.1, style: BorderStyle.solid),
         child: Text(
           'บทเรียนที่ 3 วิดีโอเเสดงตัวอย่าง',
-          style: TextStyle(color: Colors.black),
+        style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
         ),
         onPressed: () {
           Route route =
@@ -246,22 +250,23 @@ Widget gOdev() {
   Widget lesson1FourButton() {
     return OutlineButton(
       borderSide: BorderSide(
-          color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
+          color: Colors.purpleAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
-        'บทเรียนที่ 4',
-        style: TextStyle(color: Colors.black),
+        'ตัวอย่างของเว็บเพจ',
+       style: TextStyle(fontSize: 15.5,color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
-      onPressed: () {},
+      onPressed: () => launch("http://154.16.11.166/"),
     );
   }
 
   Widget lesson1FiveButton() {
     return OutlineButton(
       borderSide: BorderSide(
-          color: Colors.blueAccent, width: 1.1, style: BorderStyle.solid),
+          color: Colors.blueAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
         'บทเรียนที่ 5',
-        style: TextStyle(color: Colors.black),
+       style: TextStyle(fontSize: 15.5,color: Colors.black),
       ),
       onPressed: () {},
     );
@@ -277,7 +282,7 @@ Widget gOdev() {
         lesson1TwoButton(),
         SizedBox(height: 50.0),
         lesson1ThreeButton(),
-        SizedBox(height: 50.0),
+        SizedBox(height: 50.0),lesson1FourButton(),
       ],
     );
   }
@@ -286,25 +291,24 @@ Widget gOdev() {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.purpleAccent[700],
       endDrawer: showDrawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.purpleAccent,
-        title: Text('บทเรียน'),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-             ),
-        ),
-      ),
+      appBar:  GradientAppBar(
+            title: Text('บทเรียน'),
+            gradient: LinearGradient(
+                colors: [Colors.purpleAccent, Colors.pink])),
         body: SafeArea(
       child: Container(
         decoration: BoxDecoration(
-            gradient: RadialGradient(
-                colors: [Colors.white, Colors.purpleAccent], radius: 1.10)),
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.pink, Colors.purpleAccent])),
         child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              lesson1showBotton(),
+          child: ListView(
+           
+            children: [SizedBox(height: 120.0,),
+              lesson1showBotton(),SizedBox(
+                    height: 120.0,
+                  ),
             ],
           ),
         ),

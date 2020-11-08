@@ -27,7 +27,9 @@ dependencies:
   video_player: ^0.10.9
   photo_view: ^0.10.2
   double_back_to_close_app: ^1.2.0
-  webview_flutter: ^1.0.0
+  url_launcher: ^5.7.2
+  gradient_app_bar: ^0.1.3
+  
   
   
   
@@ -62,8 +64,8 @@ flutter:
     - images/1PM25/HTML/1 HTML.PNG
     - images/1PM25/HTML/2 HTML.PNG
     - images/1PM25/HTML/3 HTML.PNG
-    - images/1PM25/HTML/4 HTML.PNG
-    - images/1PM25/HTML/5.PNG
+    - images/1PM25/HTML/4.PNG
+   
     - videoPR/1pm25.mp4
   
 
@@ -74,8 +76,7 @@ flutter:
     - images/2Covid19/HTML/1 HTML Covid19.PNG
     - images/2Covid19/HTML/2 HTML Covid19.PNG
     - images/2Covid19/HTML/3 HTML Covid19.PNG
-    - images/2Covid19/HTML/4 HTML Covid19.PNG
-    - images/2Covid19/HTML/5.PNG
+    - images/2Covid19/HTML/4.PNG
     - videoPR/2covid.mp4
 
 
@@ -86,8 +87,7 @@ flutter:
     - images/3Weather/HTML/1 HTML.PNG
     - images/3Weather/HTML/2 HTML.PNG
     - images/3Weather/HTML/3 HTML.PNG
-    - images/3Weather/HTML/4 HTML.PNG
-    - images/3Weather/HTML/5.PNG
+    - images/3Weather/HTML/4.PNG
     - videoPR/3weather.mp4
 
     - images/Web Page/1/1 PY of import.PNG

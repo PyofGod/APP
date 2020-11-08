@@ -8,6 +8,8 @@ import 'package:papapa/three/lesson_throne.dart';
 import 'package:papapa/three/lesson_thrthree.dart';
 import 'package:papapa/three/lesson_thrtwo.dart';
 import 'package:papapa/two/main_twotwo.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class MainTHREETHREE extends StatefulWidget {
   @override
@@ -15,7 +17,7 @@ class MainTHREETHREE extends StatefulWidget {
 }
 
 class _MainTHREETHREEState extends State<MainTHREETHREE> {
-    Widget currentWidget = MainTHREETHREE();
+  Widget currentWidget = MainTHREETHREE();
 
   Widget gOHOME() {
     return ListTile(
@@ -130,7 +132,7 @@ class _MainTHREETHREEState extends State<MainTHREETHREE> {
     );
   }
 
-Widget gOdev() {
+  Widget gOdev() {
     return ListTile(
       leading: Icon(
         Icons.people_outline,
@@ -143,8 +145,7 @@ Widget gOdev() {
         setState(() {
           currentWidget = Menu();
         });
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Dev()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Dev()));
       },
     );
   }
@@ -193,66 +194,79 @@ Widget gOdev() {
           gOONE(),
           gOTwo(),
           gOThree(),
-          gOfour(),gOdev(),
+          gOfour(),
+          gOdev(),
         ],
       ),
     );
   }
 
-     Widget lesson1OneButton() {
+  Widget lesson1OneButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 1 Python',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {Route route = MaterialPageRoute(builder: (context) => LessonTHRone());
+        borderSide: BorderSide(
+            color: Colors.redAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 1 Python',
+          style: TextStyle(fontSize: 15.5, color: Colors.black,
+            fontWeight: FontWeight.bold,),
+        ),
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => LessonTHRone());
           Navigator.push(context, route);
         });
   }
 
   Widget lesson1TwoButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 2 HTML',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {Route route = MaterialPageRoute(builder: (context) => LessonTHRtwo());
+        borderSide: BorderSide(
+            color: Colors.redAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 2 HTML',
+          style: TextStyle(
+            fontSize: 15.5,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => LessonTHRtwo());
           Navigator.push(context, route);
-});
+        });
   }
+
   Widget lesson1ThreeButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
-      child: Text(
-        'บทเรียนที่ 3 วิดีโอเเสดงตัวอย่าง',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {Route route = MaterialPageRoute(builder: (context) => LessonTHRthree());
+        borderSide: BorderSide(
+            color: Colors.redAccent, width: 3.1, style: BorderStyle.solid),
+        child: Text(
+          'บทเรียนที่ 3 วิดีโอเเสดงตัวอย่าง',
+          style: TextStyle(fontSize: 15.5, color: Colors.black,
+            fontWeight: FontWeight.bold,),
+        ),
+        onPressed: () {
+          Route route =
+              MaterialPageRoute(builder: (context) => LessonTHRthree());
           Navigator.push(context, route);
         });
   }
 
   Widget lesson1FourButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
+      borderSide: BorderSide(
+          color: Colors.redAccent, width: 3.1, style: BorderStyle.solid),
       child: Text(
-        'บทเรียนที่ 4',
-        style: TextStyle(color: Colors.black),
+        'ตัวอย่างของเว็บเพจ',
+        style: TextStyle(fontSize: 15.5, color: Colors.black,
+            fontWeight: FontWeight.bold,),
       ),
-      onPressed: () {},
+      onPressed: () => launch("http://154.16.11.166:99/"),
     );
   }
 
   Widget lesson1FiveButton() {
     return OutlineButton(
-      borderSide:
-          BorderSide(color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
+      borderSide: BorderSide(
+          color: Colors.redAccent, width: 1.1, style: BorderStyle.solid),
       child: Text(
         'บทเรียนที่ 5',
         style: TextStyle(color: Colors.black),
@@ -267,9 +281,9 @@ Widget gOdev() {
       children: <Widget>[
         lesson1OneButton(),
         SizedBox(height: 50.0),
-        lesson1TwoButton(),SizedBox(height: 50.0),
-        lesson1ThreeButton(),SizedBox(height: 50.0),
-       // lesson1FourButton(),SizedBox(height: 50.0),
+        lesson1TwoButton(), SizedBox(height: 50.0),
+        lesson1ThreeButton(), SizedBox(height: 50.0),
+        lesson1FourButton(), SizedBox(height: 50.0),
         //lesson1FiveButton(),
       ],
     );
@@ -277,31 +291,34 @@ Widget gOdev() {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.redAccent[700],
-      endDrawer: showDrawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        title: Text('บทเรียน'),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-        ),
-      ),
+    return Scaffold(
+        backgroundColor: Colors.redAccent[700],
+        endDrawer: showDrawer(),
+        appBar: GradientAppBar(
+            title: Text('บทเรียน'),
+            gradient:
+                LinearGradient(colors: [Colors.redAccent, Colors.yellow])),
         body: SafeArea(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: RadialGradient(
-                colors: [Colors.white, Colors.red.shade400], radius: 1.10)),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              lesson1showBotton(),
-            ],
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.yellow, Colors.redAccent[100]])),
+            child: Center(
+              child: ListView(
+                children: [
+                  SizedBox(
+                    height: 120.0,
+                  ),
+                  lesson1showBotton(),
+                  SizedBox(
+                    height: 120.0,
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }

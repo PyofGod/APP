@@ -5,27 +5,44 @@ import 'package:flutter/cupertino.dart';
 import 'package:photo_view/photo_view.dart';
 
 class LessonFOtwo extends StatelessWidget {
-  Widget showAppName1() {
-    return Text('การรวมเว็บเพจ:HTML',
+  
+
+  Widget showtxt() {
+    return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 80.0,
+        ),
+        child: Card(
+          color: Colors.purpleAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+        Text('การรวมเว็บเพจ:HTML',
         style: TextStyle(
           fontSize: 20.5,
-          color: Colors.purple[600],
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         )
         //fontStyle: FontStyle.italic),
-        );
-  }
-
-  Widget showtxt() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        showAppName1(),
-        SizedBox(
-          height: 30.0,
         ),
-      ],
-    );
+        SizedBox(
+          height: 50.0,
+        )
+                //fontStyle: FontStyle.italic),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 
   Widget showLogo1() {
@@ -115,13 +132,31 @@ class LessonFOtwo extends StatelessWidget {
         child: PhotoView(
             imageProvider: AssetImage('images/Web Page/HTML/HTML Run.PNG')));
   }
+Widget showtxt01() {
+    return Container(
+        padding: EdgeInsets.all(20),
+        child: RichText(
+            text: TextSpan(
+                text: '1. ในส่วนแรก',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                children: <TextSpan>[
+              TextSpan(
+                  text: ' ดึงข้อมูล Document ของ dateเพื่อที่จะทำให้เว็บเพจ เริ่มการนับเวลา/วันที่ หรือแสดงเวลา/วันที่แบบ Realtime',
+                  style: TextStyle(fontWeight: FontWeight.normal)),
+              //fontStyle: FontStyle.italic),
+            ]),),);
+  }
 
   Widget showtxt1() {
     return Container(
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '1. ในส่วนแรก',
+            text: '2. ในส่วนที่สอง',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -143,7 +178,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '2. ในส่วนที่สอง',
+            text: '3. ในส่วนที่สาม',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -165,7 +200,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '3. ในส่วนที่สาม',
+            text: '4. ในส่วนที่สี่',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -187,7 +222,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '4. ในส่วนที่สี่',
+            text: '5. ในส่วนที่ห้า',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -209,7 +244,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '5. ในส่วนที่ห้า',
+            text: '6. ในส่วนที่หก',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -231,7 +266,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '6. ในส่วนที่หก',
+            text: '7. ในส่วนที่เจ็ด',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -253,7 +288,7 @@ class LessonFOtwo extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: RichText(
         text: TextSpan(
-            text: '7. ในส่วนที่เจ็ด',
+            text: '8. ในส่วนที่แปด',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -284,7 +319,7 @@ class LessonFOtwo extends StatelessWidget {
             children: <TextSpan>[
               TextSpan(
                   text:
-                      ' ของเว็บเพจของเรานั้นจะเพิ่มคำสั่งให้หน้าวิดเจ็ตของเราสามารถกดให้ไปซ้ายขว้าได้เราจะเพิ่มคำสั่งกดเข้าไปตามโค้ดที่อยู๋ตั้งแต่บรรทัดที่ 277 ถึง 284 แค่นี้หน้าเว็บเพจของเราก็เสร็จแล้ว',
+                      ' ของเว็บเพจของเรานั้นจะเพิ่มคำสั่งให้หน้าวิดเจ็ตของเราสามารถกดให้ไปซ้ายขว้าได้เพียงแค่นี้หน้าเว็บเพจของเรานั้นก็เสร็จแล้ว',
                   style: TextStyle(fontWeight: FontWeight.normal)),
               //fontStyle: FontStyle.italic),
             ]),
@@ -328,24 +363,22 @@ class LessonFOtwo extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          SizedBox(
-            height: 10.0,
-          ),
+          
           showtxt(),
           SizedBox(
             height: 30.0,
           ),
-          showLogo1(),
-          showtxt1(),
+          showLogo1(),showtxt01(),
+          
           SizedBox(
             height: 30.0,
           ),
           showLogo2(),
-          showtxt2(),
+         showtxt1(), 
           SizedBox(
             height: 30.0,
           ),
-          showLogo3(),
+          showLogo3(),showtxt2(),
           SizedBox(
             height: 20.0,
           ),
@@ -359,32 +392,32 @@ class LessonFOtwo extends StatelessWidget {
           SizedBox(
             height: 30.0,
           ),
-          showLogo6(),
+          showLogo6(),showtxt67(),
           SizedBox(
             height: 20.0,
           ),
-          showLogo7(),
-          showtxt67(),
+          showLogo7(),showtxt8(),
+          
           SizedBox(
             height: 30.0,
           ),
-          showLogo8(),
-          showtxt8(),
+          showLogo8(),showtxt9(),
+          
           SizedBox(
             height: 30.0,
           ),
-          showLogo9(),
-          showtxt9(),
+          showLogo9(),showtxt10(),
+          
           SizedBox(
             height: 30.0,
           ),
-          showLogo10(),
-          showtxt10(),
+          showLogo11(),
+          
           showtxt11(),
           SizedBox(
             height: 10.0,
           ),
-          showLogo11(),
+         showLogo10(), 
           SizedBox(
             height: 50.0,
           ),
